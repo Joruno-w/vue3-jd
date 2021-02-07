@@ -1,24 +1,35 @@
 <template>
 	<div class="docker">
-		<div class="docker__item" :class="{'docker__item--active': index === 0}" v-for="(item,index) in items" :key="item.icon">
-			<i class="iconfont" v-html="item.icon"></i>
-			<div>{{item.text}}</div>
+		<div class="docker__item"  :class="{'docker__item--active': index === currentIndex }" v-for="(item,index) in items" :key="item.icon">
+			<router-link :to="item.to" tag="div">
+				<i class="iconfont" v-html="item.icon"></i>
+				<div>{{item.text}}</div>
+			</router-link>
 		</div>
 	</div>
 </template>
 
 <script>
+const useDockerEffect = ()=>{
+	const items = [
+		{icon: '&#xe606;',text: '首页', to: {name: 'home'}},
+		{icon: '&#xe603;',text: '购物车', to: {name: 'home'} },
+		{icon: '&#xe63e;',text: '订单', to: {name: 'orderList'}},
+		{icon: '&#xe78b;',text: '我的', to: {name: 'home'}},
+	];
+	// const handleClick = index=>{
+	// 	curIndex.value = index;
+	// }
+	return {
+		items,
+	}
+}
 export default {
 	name: "Docker",
+	props: ['currentIndex'],
 	setup(){
-		const items = [
-			{icon: '&#xe606;',text: '首页'},
-			{icon: '&#xe603;',text: '购物车'},
-			{icon: '&#xe63e;',text: '订单'},
-			{icon: '&#xe78b;',text: '我的'},
-		];
-		return {
-			items
+		return{
+			...useDockerEffect()
 		}
 	}
 }
@@ -35,21 +46,27 @@ export default {
 
 	&__item {
 		flex: 1;
-		padding-top: 5px;
+		padding-top: .05rem;
 		text-align: center;
 		height: .5rem;
 		font-size: .1rem;
+		a{
+			text-decoration: none;
+			color: #000;
+		}
 
 		.iconfont {
 			font-size: .2rem;
 		}
 
 		div {
-			margin-top: 2px;
+			margin-top: .02rem;
 		}
 
 		&--active {
-			color: #1FA4FC;
+			a{
+				color: #1FA4FC;
+			}
 		}
 	}
 }

@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+        const width = document.documentElement.clientWidth || document.body.clientWidth;
+        const ratio = width / 414;
+        const fontSize = ratio * 100;
+        document.documentElement.style.fontSize = fontSize + 'px';
+    </script>
   </head>
   <body>
     <noscript>

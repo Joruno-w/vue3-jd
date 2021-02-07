@@ -67,7 +67,6 @@ export default {
 .position {
 	margin-top: .2rem;
 	font-size: .2rem;
-
 	& > span {
 		margin-right: .2rem;
 		vertical-align: top;
@@ -87,7 +86,7 @@ export default {
 	&__text {
 		color: $content-color;
 		position: relative;
-		top: -2px;
+		top: -.02rem;
 		line-height: .16rem;
 		margin-left: .1rem;
 		display: inline-block;
@@ -96,6 +95,7 @@ export default {
 }
 
 .banner {
+	margin-top: .12rem;
 	height: 0;
 	overflow: hidden;
 	padding-bottom: 25.4%;

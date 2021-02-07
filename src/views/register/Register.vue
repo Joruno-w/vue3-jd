@@ -72,7 +72,7 @@ export default {
 	position: fixed;
 	left: 50%;
 	top: 50%;
-	font-size: 10px;
+	font-size: .1rem;
 	transform: translate(-50%, -50%);
 	height: 5rem;
 
@@ -101,7 +101,7 @@ export default {
 			font-size: .16rem;
 			border-radius: .06rem;
 			background: $input-bg;
-			border: 1px solid rgba(0, 0, 0, .1);
+			border: .01rem solid rgba(0, 0, 0, .1);
 		}
 
 		&__pwd {
@@ -118,8 +118,8 @@ export default {
 		font-size: .16rem;
 		color: #fff;
 		margin-bottom: .16rem;
-		box-shadow: 0 4px 8px 0 rgba(0, 145, 255, 0.32);
-		border-radius: 4px;
+		box-shadow: 0 .04rem .08rem 0 rgba(0, 145, 255, 0.32);
+		border-radius: .0rem;
 	}
 
 	&__link {

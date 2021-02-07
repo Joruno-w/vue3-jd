@@ -1,21 +1,21 @@
 <template>
 	<div class="near">
 		<div class="near__title">附近店铺</div>
-		<ShopInfo :stores="stores"/>
+		<router-link :to="`/shop/${store._id}`" v-for="store in stores" :key="store._id" class="shop">
+			<ShopInfo :store="store" :bordered="true"/>
+		</router-link>
 	</div>
 </template>
 
 <script>
-import {ref,onMounted} from 'vue';
+import {ref} from 'vue';
 import {get} from "@/utils/request";
 import ShopInfo from "@/components/ShopInfo";
 const useNearbyEffect = ()=>{
-	const storesRef = ref([]);
-	onMounted(async ()=>{
-		storesRef.value = await get('/api/shop/hot-list').then(res=>res.data);
-	});
+	const stores = ref([]);
+	(async ()=> stores.value = await get('/api/shop/hot-list').then(res=>res.data))();
 	return{
-		stores: storesRef
+		stores
 	}
 }
 export default {
@@ -39,6 +39,9 @@ export default {
 		height: .25rem;
 		color: $text-color;
 		font-weight: 600;
+	}
+	.shop{
+		text-decoration: none;
 	}
 }
 </style>

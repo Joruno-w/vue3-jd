@@ -3,7 +3,7 @@
 		<StaticNav/>
 		<Nearby/>
 	</div>
-	<Docker/>
+	<Docker :current-index="0"/>
 </template>
 
 <script>
